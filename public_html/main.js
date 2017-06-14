@@ -16,6 +16,7 @@ function forward()
     testIdToHoldStateOfCounter = setInterval(function () {
 
         document.getElementById("bwd").disabled = false;
+        
         var teststr = str1.value;
         var len = teststr.length - 1;
         str2.value += teststr.slice(0, 1);
@@ -28,13 +29,14 @@ function forward()
     }, 1000);
 }
 function backward() {
-         var teststr1 = str1.value;
-        var teststr2 =str2.value;
-          clearInterval(testIdToHoldStateOfCounter);
+        
+         clearInterval(testIdToHoldStateOfCounter);
         testIdToHoldStateOfCounter = setInterval(function () {
+         var teststr1 = str1.value;
+         var teststr2 =str2.value;
         document.getElementById("fwd").disabled = false;
-          str1.value = teststr2.slice(-1) + teststr1;
-        str2.value = str2.value.substring(0, str2.value.length - 1);
+        str1.value = teststr2.slice(-1) + teststr1;
+        str2.value = str2.value.substring(0, teststr2.length - 1);
         
         if (str2.value.length == 0)
         {
