@@ -18,9 +18,12 @@ function forward()
         document.getElementById("bwd").disabled = false;
         
         var teststr = str1.value;
-        var len = teststr.length - 1;
+        var len = teststr.length - 1
+        ;
         str2.value += teststr.slice(0, 1);
         str1.value = teststr.substr(1, len);
+        
+        
         if (str1.value.length == 0)
         {
             document.getElementById("fwd").disabled = true;
@@ -31,6 +34,7 @@ function forward()
 function backward() {
         
          clearInterval(testIdToHoldStateOfCounter);
+         
         testIdToHoldStateOfCounter = setInterval(function () {
          var teststr1 = str1.value;
          var teststr2 =str2.value;
@@ -51,74 +55,11 @@ function backward() {
 }
 
 function hold() {
+    
     window.clearInterval(testIdToHoldStateOfCounter);
 
 }
 
-
-var fn = function () {
-    var cntr = 0;
-    var fn2 = function () {
-        document.write('Hello Everyone');
-    };
-    var fn3 = function () {
-        cntr++;
-        return "hello";
-
-    };
-    return{
-        fn3: fn3,
-        fn2: fn2};
-};
-
-var fn_resp = fn();
-document.write(fn_resp.fn3());
-
-var user1 = {
-    first: 'SAI',
-    last: 'Krish'
-};
-var user2 = {
-    first: 'SA12I',
-    last: 'Kris22h'
-};
-
-Object.prototype.displayUser = function () {
-    return "Hello";
-};
-
-function user(fnName, lName)
-{
-    this.firstName = 'firstName';
-    this.lastName = lastName;
-}
-
-var user1 = new user('H', 'H');
-console.log(user1.lastName);
-
-
-var user11 = {};
-var user21 = Object.create(Object.prototype, {
-    firstName: {
-
-    }
-
-});
-
-var testObj = {
-    "firstName": "Dalj",
-    "lastName": "Krishna"
-
-};
-
-Object.defineProperties(testObj, "FullName", {
-    get: function () {
-        return lastName + firstName;
-    },
-    set: function (value) {
-        var varsplit = value.split(" ");
-    }
-});
 
 
 
